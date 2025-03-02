@@ -13,7 +13,7 @@ import { getAreaData, removePixel, setPixel, updatePixelLimit } from './services
 import { getSettings } from './mongodb';
 import { TokenSearchParamsType } from './types/tokens';
 import { searchToken } from './services/tokens';
-import { createClan, getMyClans, verifyClanName } from './services/clans';
+import { createClan, disjoinClan, getClans, joinClan, removeClan, verifyClanName } from './services/clans';
 import { CreateClanParamsType } from './types/clans';
 
 export class CoinPixel {
@@ -60,14 +60,23 @@ export class CoinPixel {
             case user_socket_command_enum.user_search_token:
                 await this.userSearchToken(data);
                 break;
-            case user_socket_command_enum.user_get_my_clans:
-                await this.userGetMyClans();
+            case user_socket_command_enum.user_get_clans:
+                await this.userGetClans();
                 break;
             case user_socket_command_enum.user_verify_clan_name:
                 await this.userVerifyClanName(data);
                 break;
             case user_socket_command_enum.user_create_clan:
                 await this.userCreateClan(data);
+                break;
+            case user_socket_command_enum.user_remove_clan:
+                await this.userRemoveClan(data);
+                break;
+            case user_socket_command_enum.user_join_clan:
+                await this.userJoinClan(data);
+                break;
+            case user_socket_command_enum.user_disjoin_clan:
+                await this.userDisjoinClan(data);
                 break;
         }
     }
@@ -160,17 +169,15 @@ export class CoinPixel {
         }
     }
 
-    async userGetMyClans () {
+    async userGetClans () {
         if (!this.me?.user.address || !this.socket?.connected) {
             return;
         }
 
         try {
-            const clans = await getMyClans({
-                userAddress: this.me.user.address
-            });
+            const clans = await getClans(this.me.user.address);
 
-            this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
+            this.socket?.emit(server_socket_command_enum.server_set_user_clans, clans);
         } catch (err) {
             console.error(err);
         }
@@ -203,6 +210,48 @@ export class CoinPixel {
             this.socket.emit(server_socket_command_enum.server_clan_created);
         } catch (err: any) {
             this.socket.emit(server_socket_command_enum.server_clan_create_error, err.toString());
+            console.error(err);
+        }
+    }
+
+    async userRemoveClan (clan_id: string) {
+        if (!this.me?.user.address || !this.socket?.connected) {
+            return;
+        }
+
+        try {
+            await removeClan(clan_id, this.me.user.address);
+            const clans = await getClans(this.me.user.address);
+            this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
+        } catch (err: any) {
+            console.error(err);
+        }
+    }
+
+    async userJoinClan (clan_id: string) {
+        if (!this.me?.user.address || !this.socket?.connected) {
+            return;
+        }
+
+        try {
+            await joinClan(clan_id, this.me.user.address);
+            const clans = await getClans(this.me.user.address);
+            this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
+        } catch (err: any) {
+            console.error(err);
+        }
+    }
+
+    async userDisjoinClan (clan_id: string) {
+        if (!this.me?.user.address || !this.socket?.connected) {
+            return;
+        }
+
+        try {
+            await disjoinClan(clan_id, this.me.user.address);
+            const clans = await getClans(this.me.user.address);
+            this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
+        } catch (err: any) {
             console.error(err);
         }
     }

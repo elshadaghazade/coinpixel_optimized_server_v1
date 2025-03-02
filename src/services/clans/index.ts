@@ -1,14 +1,10 @@
+import { ObjectId } from "mongodb";
 import { clanMembersCollection, clansCollection, tokensCollection } from "../../mongodb";
 import { ClanType } from "../../types";
 import { CreateClanParamsType } from "../../types/clans";
 
-export const getMyClans = async (params: {
-    userAddress: string;
-}) => {
+export const getClans = async (userAddress: string) => {
     const clans = await clanMembersCollection.aggregate<ClanType>([
-        {
-            $match: { memberAddress: params.userAddress } // Find clans where user is a member
-        },
         {
             $lookup: {
                 from: "clans", // The name of the `ClanCollection` in MongoDB
@@ -21,6 +17,42 @@ export const getMyClans = async (params: {
             $unwind: "$clanDetails" // Convert array result into an object
         },
         {
+            $lookup: {
+                from: "clan_members", // Join with ClanMembersCollection to count users
+                localField: "clan_id",
+                foreignField: "clan_id",
+                as: "members"
+            }
+        },
+        {
+            $addFields: {
+                usersCount: { $size: "$members" },
+                isMember: {
+                    $gt: [
+                        { $size: { $filter: {
+                            input: "$members",
+                            as: "member",
+                            cond: { $eq: ["$$member.memberAddress", userAddress] } // Check if user is a member
+                        }}}, 
+                        0 // If user exists in members array, isMember = true
+                    ]
+                }
+            }
+        },
+        {
+            $group: {
+                _id: "$clan_id", // Group by clan_id to avoid duplicates
+                clan_id: { $first: "$clan_id" },
+                clanName: { $first: "$clanDetails.clanName" },
+                contractAddress: { $first: "$clanDetails.contractAddress" },
+                chainId: { $first: "$clanDetails.chainId" },
+                ownerAddress: { $first: "$clanDetails.ownerAddress" },
+                joined_at: { $first: "$joined_at" },
+                usersCount: { $first: { $size: "$members" } }, // Count members properly
+                isMember: { $first: "$isMember" }
+            }
+        },
+        {
             $project: {
                 _id: 0,
                 clan_id: "$clan_id",
@@ -28,7 +60,9 @@ export const getMyClans = async (params: {
                 contractAddress: "$clanDetails.contractAddress",
                 chainId: "$clanDetails.chainId",
                 ownerAddress: "$clanDetails.ownerAddress",
-                joined_at: 1
+                joined_at: 1,
+                usersCount: 1,
+                isMember: 1
             }
         }
     ]).toArray();
@@ -108,4 +142,66 @@ export const createClan = async ({
         memberAddress: userAddress,
         joined_at: new Date()
     });
+}
+
+export const removeClan = async (clan_id: string, ownerAddress: string) => {
+    const clan = await clansCollection.findOne({
+        _id: new ObjectId(clan_id),
+        ownerAddress
+    });
+
+    if (!clan) {
+        throw new Error('You are not the owner of this clan');
+    }
+
+    await clansCollection.deleteOne({
+        _id: clan._id
+    });
+
+    await clanMembersCollection.deleteMany({
+        clan_id: clan._id
+    });
+}
+
+export const joinClan = async (clan_id: string, memberAddress: string) => {
+    const clanId = new ObjectId(clan_id);
+
+    const count = await clanMembersCollection.countDocuments({
+        clan_id: clanId,
+        memberAddress
+    }, { limit: 1 });
+
+    if (!count) {
+        await clanMembersCollection.insertOne({
+            clan_id: clanId,
+            memberAddress,
+            joined_at: new Date()
+        });
+    }
+}
+
+export const disjoinClan = async (clan_id: string, memberAddress: string) => {
+    const clanId = new ObjectId(clan_id);
+
+    const ownerCount = await clansCollection.countDocuments({
+        _id: clanId,
+        ownerAddress: memberAddress
+    }, { limit: 1 });
+
+    if (ownerCount > 0) {
+        throw new Error("You are owner of this community");
+    }
+
+    const count = await clanMembersCollection.countDocuments({
+        clan_id: clanId,
+        memberAddress
+    }, { limit: 1 });
+
+    if (!count) {
+        await clanMembersCollection.deleteOne({
+            clan_id: clanId,
+            memberAddress,
+            joined_at: new Date()
+        });
+    }
 }

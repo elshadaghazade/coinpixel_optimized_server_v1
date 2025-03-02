@@ -58,6 +58,8 @@ export interface ClanType {
     contractAddress: string;
     joined_at: Date;
     ownerAddress: string;
+    usersCount: number;
+    isMember: boolean;
 }
 
 export interface ClanMembersCollectionType {
@@ -94,9 +96,12 @@ export enum user_socket_command_enum {
     user_update_pixel_limit = "5",
     user_get_settings = "6",
     user_search_token = "7",
-    user_get_my_clans = "8",
+    user_get_clans = "8",
     user_verify_clan_name = "9",
-    user_create_clan = "10"
+    user_create_clan = "10",
+    user_remove_clan = "11",
+    user_join_clan = "12",
+    user_disjoin_clan = "13"
 }
 
 export enum server_socket_command_enum {
