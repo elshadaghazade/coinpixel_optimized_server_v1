@@ -1,0 +1,8 @@
+authtoken: <your_ngrok_authtoken> # Add your authtoken from ngrok dashboard
+tunnels:
+  app1:
+    addr: 3010
+    proto: http  # or https depending on your setup
+  app2:
+    addr: 3011
+    proto: http  # or https if needed

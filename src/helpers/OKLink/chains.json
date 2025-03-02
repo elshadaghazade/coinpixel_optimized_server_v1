@@ -1,0 +1,1364 @@
+{
+    "MANTA": {
+        "id": 169,
+        "name": "Manta Pacific Mainnet",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "manta-pacific Explorer",
+                    "url": "https://pacific-explorer.manta.network"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://pacific-rpc.manta.network/http",
+                    "https://1rpc.io/manta",
+                    "https://manta-pacific-gascap.calderachain.xyz/http",
+                    "https://www.tencentcloud-rpc.com/v2/manta/manta-rpc",
+                    "https://r1.pacific.manta.systems/http",
+                    "https://manta.nirvanalabs.xyz/mantapublic",
+                    "https://manta-pacific.drpc.org",
+                    "wss://manta-pacific.drpc.org",
+                    "https://endpoints.omniatech.io/v1/manta-pacific/mainnet/public",
+                    "https://node.histori.xyz/manta-mainnet/8ry9f6t9dct1se2hlagxnd9n2a"
+                ]
+            }
+        }
+    },
+    "DOGE": {
+        "id": 2000,
+        "name": "Dogechain Mainnet",
+        "nativeCurrency": {
+            "name": "Dogecoin",
+            "symbol": "DOGE",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "dogechain explorer",
+                    "url": "https://explorer.dogechain.dog"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.dogechain.dog",
+                    "https://rpc-us.dogechain.dog",
+                    "https://rpc-sg.dogechain.dog",
+                    "https://rpc.dogechain.dog",
+                    "https://rpc01-sg.dogechain.dog",
+                    "https://rpc02-sg.dogechain.dog",
+                    "https://rpc03-sg.dogechain.dog",
+                    "https://dogechain.ankr.com",
+                    "https://dogechain-sj.ankr.com",
+                    "https://doge-mainnet.gateway.tatum.io",
+                    "https://rpc.ankr.com/dogechain"
+                ]
+            }
+        }
+    },
+    "ARBITRUM": {
+        "id": 42161,
+        "name": "Arbitrum One",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Arbiscan",
+                    "url": "https://arbiscan.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "Arbitrum Explorer",
+                    "url": "https://explorer.arbitrum.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://arbitrum.dex.guru"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://arbitrum.llamarpc.com",
+                    "https://arb1.arbitrum.io/rpc",
+                    "https://rpc.ankr.com/arbitrum",
+                    "https://1rpc.io/arb",
+                    "https://arb-pokt.nodies.app",
+                    "https://arb-mainnet.g.alchemy.com/v2/demo",
+                    "https://arbitrum.blockpi.network/v1/rpc/public",
+                    "https://arbitrum-one.public.blastapi.io",
+                    "https://arb-mainnet-public.unifra.io",
+                    "https://rpc.arb1.arbitrum.gateway.fm",
+                    "https://arbitrum-one-rpc.publicnode.com",
+                    "wss://arbitrum-one-rpc.publicnode.com",
+                    "https://arbitrum.meowrpc.com",
+                    "https://api.zan.top/arb-one",
+                    "https://arbitrum.drpc.org",
+                    "https://public.stackup.sh/api/v1/node/arbitrum-one",
+                    "https://api.stateless.solutions/arbitrum-one/v1/demo",
+                    "https://arbitrum.rpc.subquery.network/public",
+                    "https://arbitrum.gateway.tenderly.co",
+                    "wss://arbitrum.callstaticrpc.com",
+                    "https://endpoints.omniatech.io/v1/arbitrum/one/public",
+                    "https://arb1.lava.build",
+                    "https://node.histori.xyz/arbitrum-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/arb/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}"
+                ]
+            }
+        }
+    },
+    "FTM": {
+        "id": 250,
+        "name": "Fantom Opera",
+        "nativeCurrency": {
+            "name": "Fantom",
+            "symbol": "FTM",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "ftmscan",
+                    "url": "https://ftmscan.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://fantom.dex.guru"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpcapi.fantom.network",
+                    "https://fantom-pokt.nodies.app",
+                    "https://node.histori.xyz/fantom-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.ftm.tools",
+                    "https://rpc.ankr.com/fantom",
+                    "https://rpc.fantom.network",
+                    "https://rpc2.fantom.network",
+                    "https://rpc3.fantom.network",
+                    "https://fantom-mainnet.public.blastapi.io",
+                    "https://1rpc.io/ftm",
+                    "https://fantom.blockpi.network/v1/rpc/private",
+                    "https://fantom-rpc.publicnode.com",
+                    "wss://fantom-rpc.publicnode.com",
+                    "https://fantom.api.onfinality.io/public",
+                    "https://rpc.fantom.gateway.fm",
+                    "https://fantom.drpc.org",
+                    "https://fantom-mainnet.gateway.tatum.io",
+                    "wss://fantom.callstaticrpc.com",
+                    "https://endpoints.omniatech.io/v1/fantom/mainnet/public",
+                    "https://fantom-json-rpc.stakely.io",
+                    "https://api.zan.top/ftm-mainnet",
+                    "https://node.histori.xyz/fantom-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/ftm/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "wss://fantom.drpc.org"
+                ]
+            }
+        }
+    },
+    "OPBNB": {
+        "id": 204,
+        "name": "opBNB Mainnet",
+        "nativeCurrency": {
+            "name": "BNB Chain Native Token",
+            "symbol": "BNB",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "opbnbscan",
+                    "url": "https://mainnet.opbnbscan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://opbnb-mainnet-rpc.bnbchain.org",
+                    "https://opbnb.drpc.org",
+                    "wss://opbnb.drpc.org",
+                    "https://opbnb-rpc.publicnode.com",
+                    "wss://opbnb-rpc.publicnode.com",
+                    "https://1rpc.io/opbnb",
+                    "https://opbnb-mainnet.4everland.org/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "wss://opbnb-mainnet.4everland.org/ws/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "https://opbnb-mainnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3",
+                    "wss://opbnb-mainnet.nodereal.io/ws/v1/64a9df0874fb4a93b9d0a3849de012d3",
+                    "https://opbnb-mainnet.nodereal.io/v1/e9a36765eb8a40b9bd12e680a1fd2bc5",
+                    "wss://opbnb-mainnet.nodereal.io/ws/v1/e9a36765eb8a40b9bd12e680a1fd2bc5"
+                ]
+            }
+        }
+    },
+    "GNOSIS": {
+        "id": 204,
+        "name": "opBNB Mainnet",
+        "nativeCurrency": {
+            "name": "BNB Chain Native Token",
+            "symbol": "BNB",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "opbnbscan",
+                    "url": "https://mainnet.opbnbscan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://opbnb-mainnet-rpc.bnbchain.org",
+                    "https://opbnb.drpc.org",
+                    "wss://opbnb.drpc.org",
+                    "https://opbnb-rpc.publicnode.com",
+                    "wss://opbnb-rpc.publicnode.com",
+                    "https://1rpc.io/opbnb",
+                    "https://opbnb-mainnet.4everland.org/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "wss://opbnb-mainnet.4everland.org/ws/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "https://opbnb-mainnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3",
+                    "wss://opbnb-mainnet.nodereal.io/ws/v1/64a9df0874fb4a93b9d0a3849de012d3",
+                    "https://opbnb-mainnet.nodereal.io/v1/e9a36765eb8a40b9bd12e680a1fd2bc5",
+                    "wss://opbnb-mainnet.nodereal.io/ws/v1/e9a36765eb8a40b9bd12e680a1fd2bc5"
+                ]
+            }
+        }
+    },
+    "LINEA": {
+        "id": 59144,
+        "name": "Linea",
+        "nativeCurrency": {
+            "name": "Linea Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Etherscan",
+                    "url": "https://lineascan.build"
+                }
+            },
+            {
+                "default": {
+                    "name": "Blockscout",
+                    "url": "https://explorer.linea.build"
+                }
+            },
+            {
+                "default": {
+                    "name": "L2scan",
+                    "url": "https://linea.l2scan.co"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.linea.build",
+                    "https://linea.blockpi.network/v1/rpc/private",
+                    "https://1rpc.io/linea",
+                    "https://linea.drpc.org",
+                    "https://linea.decubate.com",
+                    "https://node.histori.xyz/linea-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/linea/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "wss://rpc.linea.build",
+                    "https://linea-rpc.publicnode.com",
+                    "wss://linea-rpc.publicnode.com"
+                ]
+            }
+        }
+    },
+    "BASE": {
+        "id": 8453,
+        "name": "Base",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "basescan",
+                    "url": "https://basescan.org"
+                }
+            },
+            {
+                "default": {
+                    "name": "basescout",
+                    "url": "https://base.blockscout.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://base.dex.guru"
+                }
+            },
+            {
+                "default": {
+                    "name": "Routescan",
+                    "url": "https://base.superscan.network"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://base.llamarpc.com",
+                    "https://mainnet.base.org",
+                    "https://developer-access-mainnet.base.org",
+                    "https://base-mainnet.diamondswap.org/rpc",
+                    "https://base.blockpi.network/v1/rpc/public",
+                    "https://1rpc.io/base",
+                    "https://base-pokt.nodies.app",
+                    "https://base.meowrpc.com",
+                    "https://base-mainnet.public.blastapi.io",
+                    "https://base.gateway.tenderly.co",
+                    "https://gateway.tenderly.co/public/base",
+                    "https://rpc.notadegen.com/base",
+                    "https://base-rpc.publicnode.com",
+                    "wss://base-rpc.publicnode.com",
+                    "https://base.drpc.org",
+                    "https://base.api.onfinality.io/public",
+                    "https://public.stackup.sh/api/v1/node/base-mainnet",
+                    "https://base-mainnet.gateway.tatum.io",
+                    "https://base.rpc.subquery.network/public",
+                    "wss://base.callstaticrpc.com",
+                    "https://api.zan.top/base-mainnet",
+                    "https://endpoints.omniatech.io/v1/base/mainnet/public",
+                    "https://base.lava.build",
+                    "https://rpc.numa.network/base",
+                    "https://node.histori.xyz/base-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://0xrpc.io/base",
+                    "wss://0xrpc.io/base",
+                    "https://rpc.owlracle.info/base/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "wss://base.gateway.tenderly.co"
+                ]
+            }
+        }
+    },
+    "SCROLL": {
+        "id": 534352,
+        "name": "Scroll",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Scrollscan",
+                    "url": "https://scrollscan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.scroll.io",
+                    "https://rpc-scroll.icecreamswap.com",
+                    "https://scroll-mainnet.public.blastapi.io",
+                    "https://scroll-mainnet-public.unifra.io",
+                    "https://scroll.blockpi.network/v1/rpc/private",
+                    "https://1rpc.io/scroll",
+                    "https://scroll.drpc.org",
+                    "https://scroll-mainnet.rpc.grove.city/v1/a7a7c8e2",
+                    "https://scroll.api.onfinality.io/public",
+                    "https://endpoints.omniatech.io/v1/scroll/mainnet/public",
+                    "https://node.histori.xyz/scroll-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.ankr.com/scroll",
+                    "https://scroll-mainnet.chainstacklabs.com",
+                    "https://scroll-rpc.publicnode.com",
+                    "wss://scroll-rpc.publicnode.com"
+                ]
+            }
+        }
+    },
+    "POLYGON_ZKEVM": {
+        "id": 1101,
+        "name": "Polygon zkEVM",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "blockscout",
+                    "url": "https://zkevm.polygonscan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.ankr.com/polygon_zkevm",
+                    "https://rpc.polygon-zkevm.gateway.fm",
+                    "https://1rpc.io/polygon/zkevm",
+                    "https://polygon-zkevm.blockpi.network/v1/rpc/private",
+                    "https://polygon-zkevm-mainnet.public.blastapi.io",
+                    "https://polygon-zkevm.drpc.org",
+                    "https://endpoints.omniatech.io/v1/polygon-zkevm/mainnet/public",
+                    "https://node.histori.xyz/polygon-zkevm-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://zkevm-rpc.com",
+                    "wss://polygon-zkevm.drpc.org"
+                ]
+            }
+        }
+    },
+    "SONEIUM": {
+        "id": 1868,
+        "name": "Soneium",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "blockscout",
+                    "url": "https://soneium.blockscout.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "OKLink",
+                    "url": "https://www.okx.com/web3/explorer/soneium"
+                }
+            },
+            {
+                "default": {
+                    "name": "SlamVision",
+                    "url": "https://soneium.slam.vision"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.soneium.org",
+                    "https://soneium.drpc.org",
+                    "wss://soneium.drpc.org"
+                ]
+            }
+        }
+    },
+    "APE": {
+        "id": 33139,
+        "name": "ApeChain",
+        "nativeCurrency": {
+            "name": "ApeCoin",
+            "symbol": "APE",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "ApeChain Explorer",
+                    "url": "https://apescan.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.apechain.com",
+                    "https://apechain.drpc.org",
+                    "wss://apechain.drpc.org",
+                    "https://node.histori.xyz/apechain-mainnet/8ry9f6t9dct1se2hlagxnd9n2a"
+                ]
+            }
+        }
+    },
+    "DUCKCHAIN": {
+        "id": 5545,
+        "name": "DuckChain Mainnet",
+        "nativeCurrency": {
+            "name": "TON",
+            "symbol": "TON",
+            "decimals": 18
+        },
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.duckchain.io",
+                    "https://rpc-hk.duckchain.io"
+                ]
+            }
+        }
+    },
+    "GRAVITY": {
+        "id": 1625,
+        "name": "Gravity Alpha Mainnet",
+        "nativeCurrency": {
+            "name": "Gravity",
+            "symbol": "G",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Gravity Alpha Mainnet Explorer",
+                    "url": "https://explorer.gravity.xyz"
+                }
+            },
+            {
+                "default": {
+                    "name": "gscan",
+                    "url": "https://gscan.xyz"
+                }
+            },
+            {
+                "default": {
+                    "name": "OKLink",
+                    "url": "https://www.oklink.com/gravity-alpha"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.gravity.xyz",
+                    "https://rpc.ankr.com/gravity"
+                ]
+            }
+        }
+    },
+    "ETC": {
+        "id": 61,
+        "name": "Ethereum Classic",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETC",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "blockscout-ethereum-classic",
+                    "url": "https://etc.blockscout.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "etcnetworkinfo-blockscout-ethereum-classic",
+                    "url": "https://explorer-blockscout.etc-network.info"
+                }
+            },
+            {
+                "default": {
+                    "name": "etcnetworkinfo-alethio-ethereum-classic",
+                    "url": "https://explorer-alethio.etc-network.info"
+                }
+            },
+            {
+                "default": {
+                    "name": "etcnetworkinfo-expedition-ethereum-classic",
+                    "url": "https://explorer-expedition.etc-network.info"
+                }
+            },
+            {
+                "default": {
+                    "name": "hebeblock-ethereum-classic",
+                    "url": "https://etcerscan.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "oklink-ethereum-classic",
+                    "url": "https://www.oklink.com/etc"
+                }
+            },
+            {
+                "default": {
+                    "name": "tokenview-ethereum-classic",
+                    "url": "https://etc.tokenview.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://etc.mytokenpocket.vip",
+                    "https://rpc.etcinscribe.com",
+                    "https://etc.etcdesktop.com",
+                    "https://besu-at.etc-network.info",
+                    "https://geth-at.etc-network.info",
+                    "https://services.tokenview.io/vipapi/nodeservice/etc?apikey=qVHq2o6jpaakcw3lRstl",
+                    "https://etc.rivet.link",
+                    "https://0xrpc.io/etc",
+                    "wss://0xrpc.io/etc"
+                ]
+            }
+        }
+    },
+    "BEVM": {
+        "id": 11501,
+        "name": "BEVM Mainnet",
+        "nativeCurrency": {
+            "name": "BTC",
+            "symbol": "BTC",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "bevm mainnet scan",
+                    "url": "https://scan-mainnet.bevm.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "bevm mainnet oklink",
+                    "url": "https://www.oklink.com/bevm"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc-mainnet-1.bevm.io",
+                    "https://rpc-mainnet-2.bevm.io"
+                ]
+            }
+        }
+    },
+    "BSC": {
+        "id": 56,
+        "name": "BNB Smart Chain Mainnet",
+        "nativeCurrency": {
+            "name": "BNB Chain Native Token",
+            "symbol": "BNB",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "bscscan",
+                    "url": "https://bscscan.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://bnb.dex.guru"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://binance.llamarpc.com",
+                    "https://rpc.ankr.com/bsc",
+                    "https://bsc-dataseed.bnbchain.org",
+                    "https://bsc-dataseed1.defibit.io",
+                    "https://bsc-dataseed1.ninicoin.io",
+                    "https://bsc-dataseed2.defibit.io",
+                    "https://bsc-dataseed3.defibit.io",
+                    "https://bsc-dataseed4.defibit.io",
+                    "https://bsc-dataseed2.ninicoin.io",
+                    "https://bsc-dataseed3.ninicoin.io",
+                    "https://bsc-dataseed4.ninicoin.io",
+                    "https://bsc-dataseed1.bnbchain.org",
+                    "https://bsc-dataseed2.bnbchain.org",
+                    "https://bsc-dataseed3.bnbchain.org",
+                    "https://bsc-dataseed4.bnbchain.org",
+                    "https://bsc-dataseed6.dict.life",
+                    "https://rpc-bsc.48.club",
+                    "https://0.48.club",
+                    "wss://rpc-bsc.48.club/ws",
+                    "https://bsc-pokt.nodies.app",
+                    "https://bsc-mainnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3",
+                    "https://go.getblock.io/cc778cdbdf5c4b028ec9456e0e6c0cf3",
+                    "https://bscrpc.com",
+                    "https://bsc.rpcgator.com",
+                    "https://binance.nodereal.io",
+                    "https://bsc-mainnet.rpcfast.com?api_key=xbhWBI1Wkguk8SNMu1bvvLurPGLXmgwYeC4S6g2H7WdwFigZSmPWVZRxrskEQwIf",
+                    "https://nodes.vefinetwork.org/smartchain",
+                    "https://1rpc.io/bnb",
+                    "https://bsc.rpc.blxrbdn.com",
+                    "https://bsc.blockpi.network/v1/rpc/private",
+                    "https://bnb.api.onfinality.io/public",
+                    "https://bsc-rpc.publicnode.com",
+                    "wss://bsc-rpc.publicnode.com",
+                    "https://bsc-mainnet.public.blastapi.io",
+                    "https://bsc.meowrpc.com",
+                    "https://api.zan.top/bsc-mainnet",
+                    "https://bsc.drpc.org",
+                    "https://services.tokenview.io/vipapi/nodeservice/bsc?apikey=gVFJX5OyPdc2kHH7youg",
+                    "https://rpc.polysplit.cloud/v1/chain/56",
+                    "https://public.stackup.sh/api/v1/node/bsc-mainnet",
+                    "https://bsc-mainnet.gateway.tatum.io",
+                    "https://bsc.nownodes.io",
+                    "https://bsc-mainnet.4everland.org/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "wss://bsc-mainnet.4everland.org/ws/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "https://bnb.rpc.subquery.network/public",
+                    "wss://bsc.callstaticrpc.com",
+                    "https://bsc.blockrazor.xyz",
+                    "https://endpoints.omniatech.io/v1/bsc/mainnet/public",
+                    "https://node.histori.xyz/bsc-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/bsc/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "wss://bsc-ws-node.nariox.org"
+                ]
+            }
+        }
+    },
+    "BCH": {
+        "id": 10000,
+        "name": "Smart Bitcoin Cash",
+        "nativeCurrency": {
+            "name": "Bitcoin Cash",
+            "symbol": "BCH",
+            "decimals": 18
+        },
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://smartbch.fountainhead.cash/mainnet",
+                    "https://global.uat.cash",
+                    "https://rpc.uatvo.com",
+                    "https://bch-mainnet.gateway.tatum.io",
+                    "https://smartbch.greyh.at",
+                    "https://rpc-mainnet.smartbch.org",
+                    "https://smartbch.devops.cash/mainnet"
+                ]
+            }
+        }
+    },
+    "ETH": {
+        "id": 1,
+        "name": "Ethereum Mainnet",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "etherscan",
+                    "url": "https://etherscan.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "blockscout",
+                    "url": "https://eth.blockscout.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://ethereum.dex.guru"
+                }
+            },
+            {
+                "default": {
+                    "name": "Routescan",
+                    "url": "https://ethereum.routescan.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://eth.llamarpc.com",
+                    "https://rpc.ankr.com/eth",
+                    "https://go.getblock.io/aefd01aa907c4805ba3c00a9e5b48c6b",
+                    "https://eth-mainnet.nodereal.io/v1/1659dfb40aa24bbb8153a677b98064d7",
+                    "https://ethereum-rpc.publicnode.com",
+                    "wss://ethereum-rpc.publicnode.com",
+                    "https://1rpc.io/eth",
+                    "https://rpc.builder0x69.io",
+                    "https://rpc.mevblocker.io",
+                    "https://rpc.flashbots.net",
+                    "https://virginia.rpc.blxrbdn.com",
+                    "https://uk.rpc.blxrbdn.com",
+                    "https://singapore.rpc.blxrbdn.com",
+                    "https://eth.rpc.blxrbdn.com",
+                    "https://cloudflare-eth.com",
+                    "https://eth-mainnet.public.blastapi.io",
+                    "https://api.securerpc.com/v1",
+                    "https://openapi.bitstack.com/v1/wNFxbiJyQsSeLrX8RRCHi7NpRxrlErZk/DjShIqLishPCTB9HiMkPHXjUM9CNM9Na/ETH/mainnet",
+                    "https://eth-pokt.nodies.app",
+                    "https://eth-mainnet-public.unifra.io",
+                    "https://ethereum.blockpi.network/v1/rpc/public",
+                    "https://rpc.payload.de",
+                    "https://api.zmok.io/mainnet/oaen6dy8ff6hju9k",
+                    "https://node.histori.xyz/eth-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://eth-mainnet.g.alchemy.com/v2/demo",
+                    "https://core.gashawk.io/rpc",
+                    "https://mainnet.eth.cloud.ava.do",
+                    "https://ethereumnodelight.app.runonflux.io",
+                    "https://eth-mainnet.rpcfast.com?api_key=xbhWBI1Wkguk8SNMu1bvvLurPGLXmgwYeC4S6g2H7WdwFigZSmPWVZRxrskEQwIf",
+                    "https://main-light.eth.linkpool.io",
+                    "https://rpc.eth.gateway.fm",
+                    "https://rpc.chain49.com/ethereum?api_key=14d1a8b86d8a4b4797938332394203dc",
+                    "https://eth.meowrpc.com",
+                    "https://eth.drpc.org",
+                    "https://mainnet.gateway.tenderly.co",
+                    "https://virtual.mainnet.rpc.tenderly.co/7355b215-ef17-4e3e-8f64-d494284ef18a",
+                    "https://gateway.tenderly.co/public/mainnet",
+                    "https://api.zan.top/eth-mainnet",
+                    "https://eth-mainnet.diamondswap.org/rpc",
+                    "https://rpc.notadegen.com/eth",
+                    "https://eth.merkle.io",
+                    "https://rpc.lokibuilder.xyz/wallet",
+                    "https://services.tokenview.io/vipapi/nodeservice/eth?apikey=qVHq2o6jpaakcw3lRstl",
+                    "https://eth.nodeconnect.org",
+                    "https://api.stateless.solutions/ethereum/v1/demo",
+                    "https://rpc.polysplit.cloud/v1/chain/1",
+                    "https://public.stackup.sh/api/v1/node/ethereum-mainnet",
+                    "https://ethereum-mainnet.gateway.tatum.io",
+                    "https://eth.nownodes.io",
+                    "https://rpc.nodifi.ai/api/rpc/free",
+                    "https://ethereum.rpc.subquery.network/public",
+                    "https://rpc.graffiti.farm",
+                    "https://rpc.public.curie.radiumblock.co/http/ethereum",
+                    "https://eth-mainnet.4everland.org/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "wss://eth-mainnet.4everland.org/ws/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "https://rpc.public.curie.radiumblock.co/ws/ethereum",
+                    "wss://ws-rpc.graffiti.farm",
+                    "wss://ethereum.callstaticrpc.com",
+                    "https://eth.blockrazor.xyz",
+                    "https://endpoints.omniatech.io/v1/eth/mainnet/public",
+                    "https://eth1.lava.build",
+                    "https://0xrpc.io/eth",
+                    "wss://0xrpc.io/eth",
+                    "https://rpc.owlracle.info/eth/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "https://api.mycryptoapi.com/eth",
+                    "wss://mainnet.gateway.tenderly.co",
+                    "https://rpc.blocknative.com/boost",
+                    "https://rpc.flashbots.net/fast",
+                    "https://rpc.mevblocker.io/fast",
+                    "https://rpc.mevblocker.io/noreverts",
+                    "https://rpc.mevblocker.io/fullprivacy",
+                    "wss://eth.drpc.org"
+                ]
+            }
+        }
+    },
+    "POLYGON": {
+        "id": 137,
+        "name": "Polygon Mainnet",
+        "nativeCurrency": {
+            "name": "POL",
+            "symbol": "POL",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "polygonscan",
+                    "url": "https://polygonscan.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://polygon.dex.guru"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://polygon.llamarpc.com",
+                    "https://rpc.ankr.com/polygon",
+                    "https://polygon-rpc.com",
+                    "https://rpc-mainnet.matic.quiknode.pro",
+                    "https://polygon-pokt.nodies.app",
+                    "https://polygon-mainnet.public.blastapi.io",
+                    "https://1rpc.io/matic",
+                    "https://polygon-mainnet.rpcfast.com?api_key=xbhWBI1Wkguk8SNMu1bvvLurPGLXmgwYeC4S6g2H7WdwFigZSmPWVZRxrskEQwIf",
+                    "https://polygon-bor-rpc.publicnode.com",
+                    "wss://polygon-bor-rpc.publicnode.com",
+                    "https://polygon-mainnet.g.alchemy.com/v2/demo",
+                    "https://polygon.blockpi.network/v1/rpc/private",
+                    "https://go.getblock.io/02667b699f05444ab2c64f9bff28f027",
+                    "https://polygon.api.onfinality.io/public",
+                    "https://polygon.rpc.blxrbdn.com",
+                    "https://polygon.drpc.org",
+                    "https://polygon.gateway.tenderly.co",
+                    "https://gateway.tenderly.co/public/polygon",
+                    "https://api.zan.top/polygon-mainnet",
+                    "https://polygon.meowrpc.com",
+                    "https://public.stackup.sh/api/v1/node/polygon-mainnet",
+                    "https://polygon-mainnet.gateway.tatum.io",
+                    "https://polygon.rpc.subquery.network/public",
+                    "https://polygon-mainnet.4everland.org/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "wss://polygon-mainnet.4everland.org/ws/v1/37fa9972c1b1cd5fab542c7bdd4cde2f",
+                    "https://endpoints.omniatech.io/v1/matic/mainnet/public",
+                    "https://polygon.lava.build",
+                    "https://node.histori.xyz/matic-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/poly/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "https://rpc-mainnet.matic.network",
+                    "https://matic-mainnet.chainstacklabs.com",
+                    "https://rpc-mainnet.maticvigil.com",
+                    "https://matic-mainnet-full-rpc.bwarelabs.com",
+                    "wss://polygon.gateway.tenderly.co",
+                    "wss://polygon.drpc.org"
+                ]
+            }
+        }
+    },
+    "ZKSYNC": {
+        "id": 324,
+        "name": "zkSync Mainnet",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "zkSync Era Block Explorer",
+                    "url": "https://explorer.zksync.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://mainnet.era.zksync.io",
+                    "https://zksync-era.blockpi.network/v1/rpc/private",
+                    "https://go.getblock.io/f76c09905def4618a34946bf71851542",
+                    "https://zksync.meowrpc.com",
+                    "https://zksync.drpc.org",
+                    "https://1rpc.io/zksync2-era",
+                    "https://endpoints.omniatech.io/v1/zksync-era/mainnet/public",
+                    "https://api.zan.top/zksync-mainnet",
+                    "https://node.histori.xyz/zksync-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "wss://zksync.drpc.org"
+                ]
+            }
+        }
+    },
+    "TRON": {
+        "id": 728126428,
+        "name": "Tron Mainnet",
+        "nativeCurrency": {
+            "name": "Tron",
+            "symbol": "TRX",
+            "decimals": 6
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "tronscan",
+                    "url": "https://tronscan.org"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.ankr.com/tron_jsonrpc",
+                    "https://api.trongrid.io/jsonrpc"
+                ]
+            }
+        }
+    },
+    "CANTO": {
+        "id": 7700,
+        "name": "Canto",
+        "nativeCurrency": {
+            "name": "Canto",
+            "symbol": "CANTO",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Canto Explorer (OKLink)",
+                    "url": "https://www.oklink.com/canto"
+                }
+            },
+            {
+                "default": {
+                    "name": "Canto EVM Explorer (Blockscout)",
+                    "url": "https://tuber.build"
+                }
+            },
+            {
+                "default": {
+                    "name": "dexguru",
+                    "url": "https://canto.dex.guru"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://canto.gravitychain.io",
+                    "https://canto.evm.chandrastation.com",
+                    "https://jsonrpc.canto.nodestake.top",
+                    "https://canto.dexvaults.com",
+                    "wss://canto.gravitychain.io:8546",
+                    "wss://canto.dexvaults.com/ws",
+                    "https://canto-rpc.ansybl.io",
+                    "https://canto.dexrouting.com",
+                    "https://canto.slingshot.finance",
+                    "https://mainnode.plexnode.org:8545"
+                ]
+            }
+        }
+    },
+    "BLAST": {
+        "id": 81457,
+        "name": "Blast",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Blastscan",
+                    "url": "https://blastscan.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "Blast Explorer",
+                    "url": "https://blastexplorer.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.blast.io",
+                    "https://blast.din.dev/rpc",
+                    "https://blastl2-mainnet.public.blastapi.io",
+                    "https://blast.blockpi.network/v1/rpc/private",
+                    "https://blast.blockpi.network/v1/rpc/private",
+                    "https://rpc.ankr.com/blast",
+                    "https://blast.gasswap.org",
+                    "wss://blast.gasswap.org",
+                    "https://blast-rpc.publicnode.com",
+                    "wss://blast-rpc.publicnode.com",
+                    "https://blast.drpc.org",
+                    "wss://blast.drpc.org",
+                    "https://blast.gateway.tenderly.co",
+                    "wss://blast.callstaticrpc.com",
+                    "https://endpoints.omniatech.io/v1/blast/mainnet/public",
+                    "https://node.histori.xyz/blast-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://rpc.owlracle.info/blast/70d38ce1826c4a60bb2a8e05a6c8b20f",
+                    "https://blast.blockpi.network/v1/rpc/public"
+                ]
+            }
+        }
+    },
+    "BITLAYER": {
+        "id": 200901,
+        "name": "Bitlayer Mainnet",
+        "nativeCurrency": {
+            "name": "BTC",
+            "symbol": "BTC",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "bitlayer mainnet scan",
+                    "url": "https://www.btrscan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.bitlayer.org",
+                    "https://rpc.bitlayer-rpc.com",
+                    "https://rpc.ankr.com/bitlayer",
+                    "https://rpc-bitlayer.rockx.com",
+                    "wss://ws.bitlayer.org",
+                    "wss://ws.bitlayer-rpc.com"
+                ]
+            }
+        }
+    },
+    "RONIN": {
+        "id": 2020,
+        "name": "Ronin",
+        "nativeCurrency": {
+            "name": "Ronin",
+            "symbol": "RON",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Ronin Explorer",
+                    "url": "https://app.roninchain.com/"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://api.roninchain.com/rpc",
+                    "https://api-gateway.skymavis.com/rpc?apikey=9aqYLBbxSC6LROynQJBvKkEIsioqwHmr",
+                    "https://ronin.lgns.net/rpc",
+                    "https://ronin.drpc.org"
+                ]
+            }
+        }
+    },
+    "KAIA": {
+        "id": 8217,
+        "name": "Kaia Mainnet",
+        "nativeCurrency": {
+            "name": "KAIA",
+            "symbol": "KAIA",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Kaiascope",
+                    "url": "https://kaiascope.com"
+                }
+            },
+            {
+                "default": {
+                    "name": "Kaiascan",
+                    "url": "https://kaiascan.io"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://public-en.node.kaia.io",
+                    "https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro",
+                    "https://kaia.blockpi.network/v1/rpc/public",
+                    "https://kaia-mainnet.rpc.grove.city/v1/803ceedf",
+                    "https://go.getblock.io/d7094dbd80ab474ba7042603fe912332",
+                    "https://klaytn.api.onfinality.io/public",
+                    "https://1rpc.io/klay",
+                    "https://klaytn.drpc.org",
+                    "https://rpc.ankr.com/klaytn ",
+                    "https://node.histori.xyz/kaia-mainnet/8ry9f6t9dct1se2hlagxnd9n2a"
+                ]
+            }
+        }
+    },
+    "BOB": {
+        "id": 60808,
+        "name": "BOB",
+        "nativeCurrency": {
+            "name": "Ether",
+            "symbol": "ETH",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "bobscout",
+                    "url": "https://explorer.gobob.xyz"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://rpc.gobob.xyz",
+                    "wss://rpc.gobob.xyz",
+                    "https://bob.drpc.org",
+                    "wss://bob.drpc.org",
+                    "https://bob.gateway.tenderly.co",
+                    "https://bob-mainnet.public.blastapi.io",
+                    "wss://bob-mainnet.public.blastapi.io"
+                ]
+            }
+        }
+    },
+    "AVAXC": {
+        "id": 43114,
+        "name": "Avalanche C-Chain",
+        "nativeCurrency": {
+            "name": "Avalanche",
+            "symbol": "AVAX",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Etherscan",
+                    "url": "https://snowscan.xyz"
+                }
+            },
+            {
+                "default": {
+                    "name": "Routescan",
+                    "url": "https://snowtrace.io"
+                }
+            },
+            {
+                "default": {
+                    "name": "Avascan",
+                    "url": "https://avascan.info"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://api.avax.network/ext/bc/C/rpc",
+                    "https://avalanche.public-rpc.com",
+                    "https://rpc.ankr.com/avalanche",
+                    "https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc",
+                    "https://avalancheapi.terminet.io/ext/bc/C/rpc",
+                    "https://avalanche-c-chain-rpc.publicnode.com",
+                    "wss://avalanche-c-chain-rpc.publicnode.com",
+                    "https://1rpc.io/avax/c",
+                    "https://avalanche.blockpi.network/v1/rpc/private",
+                    "https://avax-pokt.nodies.app/ext/bc/C/rpc",
+                    "https://avalanche.api.onfinality.io/public/ext/bc/C/rpc",
+                    "https://endpoints.omniatech.io/v1/avax/mainnet/public",
+                    "https://avax.meowrpc.com",
+                    "https://api.zan.top/avax-mainnet/ext/bc/C/rpc",
+                    "https://avalanche.drpc.org",
+                    "https://public.stackup.sh/api/v1/node/avalanche-mainnet",
+                    "https://avax-x-mainnet.gateway.tatum.io",
+                    "https://avalanche-mainnet.gateway.tenderly.co",
+                    "https://node.histori.xyz/avalanche-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://0xrpc.io/avax",
+                    "wss://0xrpc.io/avax",
+                    "https://rpc.owlracle.info/avax/70d38ce1826c4a60bb2a8e05a6c8b20f"
+                ]
+            }
+        }
+    },
+    "KAVA": {
+        "id": 2222,
+        "name": "Kava",
+        "nativeCurrency": {
+            "name": "Kava",
+            "symbol": "KAVA",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Kava EVM Explorer",
+                    "url": "https://kavascan.com"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://evm.kava.io",
+                    "https://kava.api.onfinality.io/public",
+                    "https://kava-evm-rpc.publicnode.com",
+                    "https://kava-pokt.nodies.app",
+                    "wss://kava-evm-rpc.publicnode.com",
+                    "https://evm.kava.chainstacklabs.com",
+                    "wss://wevm.kava.chainstacklabs.com",
+                    "https://rpc.ankr.com/kava_evm",
+                    "https://evm.kava-rpc.com",
+                    "https://kava.drpc.org",
+                    "wss://kava.drpc.org",
+                    "https://node.histori.xyz/kava-mainnet/8ry9f6t9dct1se2hlagxnd9n2a",
+                    "https://kava-rpc.gateway.pokt.network",
+                    "https://kava-evm.rpc.thirdweb.com",
+                    "wss://wevm.kava.io",
+                    "wss://wevm.kava-rpc.com"
+                ]
+            }
+        }
+    },
+    "EVMOS": {
+        "id": 9001,
+        "name": "Evmos",
+        "nativeCurrency": {
+            "name": "Evmos",
+            "symbol": "EVMOS",
+            "decimals": 18
+        },
+        "blockExplorers": [
+            {
+                "default": {
+                    "name": "Evmos Explorer (Escan)",
+                    "url": "https://escan.live"
+                }
+            }
+        ],
+        "rpcUrls": {
+            "default": {
+                "http": [
+                    "https://evmos.lava.build",
+                    "https://evmos-pokt.nodies.app",
+                    "https://evmos-mainnet.public.blastapi.io",
+                    "https://evmos-evm-rpc.publicnode.com",
+                    "wss://evmos-evm-rpc.publicnode.com",
+                    "https://jsonrpc-evmos.goldenratiostaking.net",
+                    "https://evmos.api.onfinality.io/public",
+                    "https://evmos-jsonrpc.cyphercore.io",
+                    "https://evmos.drpc.org",
+                    "wss://evmos.drpc.org",
+                    "https://eth.bd.evmos.org:8545",
+                    "https://evmos-json-rpc.stakely.io",
+                    "https://jsonrpc-evmos-ia.cosmosia.notional.ventures",
+                    "https://json-rpc.evmos.blockhunters.org",
+                    "https://evmos-json-rpc.agoranodes.com",
+                    "https://evmos-json.antrixy.org",
+                    "https://jsonrpc.evmos.nodestake.top",
+                    "https://evmos-jsonrpc.alkadeta.com",
+                    "https://evmos-json.qubelabs.io",
+                    "https://evmos-rpc.theamsolutions.info",
+                    "https://evmos-api.theamsolutions.info",
+                    "https://evmos-jsonrpc.theamsolutions.info",
+                    "https://evm-rpc-evmos.hoodrun.io",
+                    "https://evmos-json-rpc.0base.dev",
+                    "https://json-rpc.evmos.tcnetwork.io",
+                    "https://rpc-evm.evmos.dragonstake.io",
+                    "https://evmosevm.rpc.stakin-nodes.com",
+                    "https://evmos-jsonrpc.stake-town.com",
+                    "https://json-rpc-evmos.mainnet.validatrium.club",
+                    "https://rpc-evmos.imperator.co",
+                    "https://evm-rpc.evmos.silentvalidator.com",
+                    "https://alphab.ai/rpc/eth/evmos",
+                    "https://evmos-jsonrpc.kalia.network",
+                    "https://jsonrpc-evmos.mzonder.com",
+                    "wss://evmos.lava.build/websocket"
+                ]
+            }
+        }
+    }
+}
