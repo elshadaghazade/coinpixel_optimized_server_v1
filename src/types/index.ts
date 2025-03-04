@@ -49,17 +49,14 @@ export interface ClanCollectionType {
     chainId: number;
     contractAddress: string;
     ownerAddress: string;
+    rating: number;
+    members: {
+        memberAddress: string;
+        rating: 0;
+        joined_at: Date;
+    }[];
     createdAt: Date;
-}
-
-export interface ClanType {
-    chainId: number;
-    clan_id: ObjectId;
-    contractAddress: string;
-    joined_at: Date;
-    ownerAddress: string;
-    usersCount: number;
-    isMember: boolean;
+    updatedAt: Date;
 }
 
 export interface ClanMembersCollectionType {
@@ -67,6 +64,13 @@ export interface ClanMembersCollectionType {
     clan_id: ObjectId;
     memberAddress: string;
     joined_at: Date;
+}
+
+export interface PixelLogCollectionType {
+    _id?: ObjectId;
+    clan_id: ObjectId;
+    userAddress: string;
+    created_at: Date;
 }
 
 export interface MeType {
@@ -101,7 +105,10 @@ export enum user_socket_command_enum {
     user_create_clan = "10",
     user_remove_clan = "11",
     user_join_clan = "12",
-    user_disjoin_clan = "13"
+    user_leave_clan = "13",
+    user_get_clan = "14",
+    user_get_token = "15",
+    user_get_clan_members = "16"
 }
 
 export enum server_socket_command_enum {
@@ -115,4 +122,7 @@ export enum server_socket_command_enum {
     server_clan_name_exists = "8",
     server_clan_created = "9",
     server_clan_create_error = "10",
+    server_set_clan = "11",
+    server_set_token = "12",
+    server_set_clan_members = "13"
 }

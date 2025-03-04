@@ -13,8 +13,15 @@ import { getAreaData, removePixel, setPixel, updatePixelLimit } from './services
 import { getSettings } from './mongodb';
 import { TokenSearchParamsType } from './types/tokens';
 import { searchToken } from './services/tokens';
-import { createClan, disjoinClan, getClans, joinClan, removeClan, verifyClanName } from './services/clans';
-import { CreateClanParamsType } from './types/clans';
+import { createClan, leaveClan, getClans, joinClan, removeClan, verifyClanName, getClan, getClanMembers } from './services/clans';
+import { 
+    CreateClanParamsType, 
+    GetClanMembersParamsType, 
+    GetClansParamsType, 
+    JoinClanParamsType, 
+    LeaveClanParamsType, 
+    RemoveClanParamsType 
+} from './types/clans';
 
 export class CoinPixel {
 
@@ -61,7 +68,7 @@ export class CoinPixel {
                 await this.userSearchToken(data);
                 break;
             case user_socket_command_enum.user_get_clans:
-                await this.userGetClans();
+                await this.userGetClans(data);
                 break;
             case user_socket_command_enum.user_verify_clan_name:
                 await this.userVerifyClanName(data);
@@ -75,8 +82,14 @@ export class CoinPixel {
             case user_socket_command_enum.user_join_clan:
                 await this.userJoinClan(data);
                 break;
-            case user_socket_command_enum.user_disjoin_clan:
-                await this.userDisjoinClan(data);
+            case user_socket_command_enum.user_leave_clan:
+                await this.userLeaveClan(data);
+                break;
+            case user_socket_command_enum.user_get_clan:
+                await this.userGetClan(data);
+                break;
+            case user_socket_command_enum.user_get_clan_members:
+                await this.userGetClanMembers(data);
                 break;
         }
     }
@@ -169,13 +182,16 @@ export class CoinPixel {
         }
     }
 
-    async userGetClans () {
+    async userGetClans (params: GetClansParamsType) {
         if (!this.me?.user.address || !this.socket?.connected) {
             return;
         }
 
         try {
-            const clans = await getClans(this.me.user.address);
+            const clans = await getClans({
+                ...params,
+                userAddress: this.me.user.address
+            });
 
             this.socket?.emit(server_socket_command_enum.server_set_user_clans, clans);
         } catch (err) {
@@ -214,43 +230,80 @@ export class CoinPixel {
         }
     }
 
-    async userRemoveClan (clan_id: string) {
+    async userRemoveClan (params: RemoveClanParamsType) {
         if (!this.me?.user.address || !this.socket?.connected) {
             return;
         }
 
         try {
-            await removeClan(clan_id, this.me.user.address);
-            const clans = await getClans(this.me.user.address);
+            await removeClan({
+                ...params,
+                userAddress: this.me.user.address
+            });
+            const clans = await getClans(params);
             this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
         } catch (err: any) {
             console.error(err);
         }
     }
 
-    async userJoinClan (clan_id: string) {
+    async userJoinClan (params: JoinClanParamsType) {
         if (!this.me?.user.address || !this.socket?.connected) {
             return;
         }
 
         try {
-            await joinClan(clan_id, this.me.user.address);
-            const clans = await getClans(this.me.user.address);
+            await joinClan(params.clan_id, this.me.user.address);
+            const clans = await getClans({
+                ...params,
+                userAddress: this.me.user.address
+            });
             this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
         } catch (err: any) {
             console.error(err);
         }
     }
 
-    async userDisjoinClan (clan_id: string) {
+    async userLeaveClan (params: LeaveClanParamsType) {
         if (!this.me?.user.address || !this.socket?.connected) {
             return;
         }
 
         try {
-            await disjoinClan(clan_id, this.me.user.address);
-            const clans = await getClans(this.me.user.address);
+            await leaveClan(params);
+            const clans = await getClans(params);
             this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
+        } catch (err: any) {
+            console.error(err);
+        }
+    }
+
+    async userGetClan (params: {
+        clan_id: string;
+    }) {
+        if (!this.me?.user.address || !this.socket?.connected) {
+            return;
+        }
+
+        try {
+            const clan = await getClan({
+                ...params,
+                userAddress: this.me.user.address
+            });
+            this.socket.emit(server_socket_command_enum.server_set_clan, clan);
+        } catch (err: any) {
+            console.error(err);
+        }
+    }
+
+    async userGetClanMembers (params: GetClanMembersParamsType) {
+        if (!this.me?.user.address || !this.socket?.connected) {
+            return;
+        }
+
+        try {
+            const clanMembers = await getClanMembers(params);
+            this.socket.emit(server_socket_command_enum.server_set_clan_members, clanMembers);
         } catch (err: any) {
             console.error(err);
         }

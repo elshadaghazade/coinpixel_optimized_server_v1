@@ -8,6 +8,9 @@
     "dev": "dotenv -e .env.development -- nodemon src/server.ts",
     "seed_pixels": "dotenv -e .env.development -- ts-node src/seed/random_pixels.ts",
     "seed_tokens": "dotenv -e .env.development -- ts-node src/seed/tokens.ts",
+    "seed_clans": "dotenv -e .env.development -- ts-node src/seed/random_clans_and_members.ts",
+    "update_clan_leaderboard:dev": "dotenv -e .env.development -- ts-node src/seed/update_clan_leaderboard.ts",
+    "update_clan_leaderboard:prod": "dotenv -e .env -- ts-node src/seed/update_clan_leaderboard.ts",
     "docker": "docker compose stop && docker compose rm -f && docker compose up -d"
   },
   "keywords": [],
@@ -24,6 +27,7 @@
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.5.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^22.5.5",

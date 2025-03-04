@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
-import { 
+import {
     ClanCollectionType,
-    ClanMembersCollectionType,
-    SettingsDocumentType,  
-    TokensCollectionType, 
-    UserDocumentType 
+    PixelLogCollectionType,
+    SettingsDocumentType,
+    TokensCollectionType,
+    UserDocumentType
 } from "../types";
 
 const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
@@ -22,7 +22,7 @@ export const usersCollection = db.collection<UserDocumentType>('users');
 export const settingsCollection = db.collection<SettingsDocumentType>('settings');
 export const tokensCollection = db.collection<TokensCollectionType>('tokens');
 export const clansCollection = db.collection<ClanCollectionType>('clans');
-export const clanMembersCollection = db.collection<ClanMembersCollectionType>('clan_members');
+export const pixelLogsCollection = db.collection<PixelLogCollectionType>('pixel_logs');
 
 export const getSettings = async () => {
     const settings = await settingsCollection.findOne({});
@@ -30,38 +30,40 @@ export const getSettings = async () => {
 }
 
 const colors = [
-    '#fefeff', 
-    '#e5e5e4', 
-    '#898988', 
-    '#232223', 
-    '#ffa6d0', 
-    '#e50101', 
-    '#e49401', 
-    '#a16a43', 
-    '#e4d901', 
-    '#95e144', 
-    '#06bf03', 
-    '#05d3dd', 
-    '#0282c7', 
-    '#0100e8', 
-    '#c76fe4', 
+    '#fefeff',
+    '#e5e5e4',
+    '#898988',
+    '#232223',
+    '#ffa6d0',
+    '#e50101',
+    '#e49401',
+    '#a16a43',
+    '#e4d901',
+    '#95e144',
+    '#06bf03',
+    '#05d3dd',
+    '#0282c7',
+    '#0100e8',
+    '#c76fe4',
     '#820181'
 ];
 
 (async () => {
     // creating indexes
     try {
-        await pixelsCollection.createIndex({ row: 1, col: 1 }, { unique: true, name: 'pixels_row_col_index' });
-        await usersCollection.createIndex({ address: 1 }, { unique: true, name: 'users_address_index' });
-        await tokensCollection.createIndex({ tokenContractAddress: 1, chainId: 1 }, { unique: true, name: 'token_contract_address_chain_id_unique'});
-        await tokensCollection.createIndex({ tokenFullName: 1 }, { unique: false, name: 'token_full_name'});
-        await tokensCollection.createIndex({ tokenSymbol: 1 }, { unique: false, name: 'token_symbol'});
-        await tokensCollection.createIndex({ chainId: 1 }, { unique: false, name: 'token_chain_id'});
-        await tokensCollection.createIndex({ chainShortName: 1 }, { unique: false, name: 'token_chain_short_name'});
-        await tokensCollection.createIndex({ chainName: 1 }, { unique: false, name: 'token_chain_name'});
-        await clansCollection.createIndex({ contractAddress: 1, chainId: 1 }, { unique: false, name: 'clan_contract_address_chain_id' });
-        await clansCollection.createIndex({ clanName: 1 }, { unique: true, name: 'clan_name'});
-        await clanMembersCollection.createIndex({ clan_id: 1, memberAddress: 1 }, { unique: false, name: 'clan_contract_address_chain_id' });
+        await pixelsCollection.createIndex({ row: 1, col: 1 }, { unique: true, name: "pixels_row_col_index" });
+        await usersCollection.createIndex({ address: 1 }, { unique: true, name: "users_address_index" });
+
+        await tokensCollection.createIndex({ tokenContractAddress: 1, chainId: 1 }, { unique: true, name: "token_contract_address_chain_id_unique" });
+        await tokensCollection.createIndex({ tokenFullName: "text", tokenSymbol: "text" }, { name: "token_text_search" });
+        await tokensCollection.createIndex({ chainId: 1 }, { name: "token_chain_id" });
+
+        await clansCollection.createIndex({ contractAddress: 1, chainId: 1 }, { name: "clan_contract_address_chain_id" });
+        await clansCollection.createIndex({ clanName: "text", contractAddress: "text" }, { name: "clan_text_search" });
+        await clansCollection.createIndex({ rating: -1 }, { name: "clan_sorting_rating" });
+        await clansCollection.createIndex({ ownerAddress: 1 }, { name: "clan_ownerAddress" });
+        await clansCollection.createIndex({ "members.memberAddress": 1 }, { name: "clan_members_memberAddress" });
+
     } catch (err: any) {
         console.error("coinpixel.pixels.row_col_index error:", err.toString());
     }
