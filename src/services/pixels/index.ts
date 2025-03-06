@@ -1,7 +1,17 @@
 import { ObjectId } from "mongodb";
-import { pixelsCollection, usersCollection } from "../../mongodb";
+import { pixelLogsCollection, pixelsCollection, usersCollection } from "../../mongodb";
 import { OffsetType, PixelType, server_socket_command_enum, SocketType } from "../../types";
 import MultiPairEncoding from "../../helpers/MultiPairEncoding";
+
+export const setPixelLog = async (clan_id: string, userAddress: `0x${string}`) => {
+    const clanId = new ObjectId(clan_id);
+
+    await pixelLogsCollection.insertOne({
+        clan_id: clanId,
+        userAddress,
+        created_at: new Date()
+    });
+}
 
 export const setPixel = async (pixel: PixelType, offset: OffsetType) => {
     pixel.row += offset.rowsCount;
@@ -129,7 +139,7 @@ export const getAreaData = async (data: [[number, number], [number, number], str
     }
 };
 
-export const updatePixelLimit = async (pixelLimit: number, address: string) => {
+export const updatePixelLimit = async (pixelLimit: number, address: `0x${string}`) => {
     await usersCollection.updateOne(
         { address }, 
         { $set: { pixelLimit } }

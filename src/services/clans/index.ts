@@ -1,13 +1,14 @@
 import { ObjectId } from "mongodb";
 import { clansCollection, tokensCollection } from "../../mongodb";
-import { ClanMemberType, ClanType, CreateClanParamsType, GetClanMembersParamsType, GetClansParamsType, LeaveClanParamsType, RemoveClanParamsType } from "../../types/clans";
+import { ClanMemberType, ClanType, CreateClanParamsType, GET_CLANS_FILTER_ENUM, GetClanMembersParamsType, GetClansParamsType, LeaveClanParamsType, RemoveClanParamsType } from "../../types/clans";
+import { getBalance } from "../tokens";
 
 export const getClans = async ({
     keyword = '',
     page = 1,
     limit = 10,
     userAddress,
-    isOwner
+    filter
 }: GetClansParamsType): Promise<ClanType[]> => {
     const pipeline: any[] = [];
 
@@ -25,9 +26,11 @@ export const getClans = async ({
 
     // 🔹 Filter by ownership after keyword match
     pipeline.push({
-        $match: isOwner
-            ? { ownerAddress: userAddress } // Get clans owned by user
-            : { ownerAddress: { $ne: userAddress } } // Exclude user's owned clans
+        $match: filter === GET_CLANS_FILTER_ENUM.owner
+            ? { ownerAddress: userAddress }
+            : (filter === GET_CLANS_FILTER_ENUM.other 
+                ? { ownerAddress: { $ne: userAddress } } 
+                : { members: { $elemMatch: { memberAddress: userAddress } } }) // Check if userAddress exists in members array
     });
 
     // 🔹 Join `tokensCollection` to fetch `logoUrl` & `tokenFullName`
@@ -247,6 +250,70 @@ export const getClanMembers = async ({
         : { totalMembers: 0, members: [] };
 };
 
+export const getLeaderboard = async () => {
+    const leaders = await clansCollection.aggregate([
+        {
+            $match: { rating: { $gt: 0 } } // Only clans with rating > 0
+        },
+        {
+            $lookup: {
+                from: "tokens",
+                let: { contractAddress: "$contractAddress", chainId: "$chainId" }, // Correctly defining variables
+                pipeline: [
+                    {
+                        $match: {
+                            $expr: {
+                                $and: [
+                                    { $eq: ["$tokenContractAddress", "$$contractAddress"] }, // Match contractAddress with tokenContractName
+                                    { $eq: ["$chainId", "$$chainId"] } // Match chainId
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        $project: {
+                            _id: 0,
+                            logoUrl: 1,
+                            tokenSymbol: 1,
+                        }
+                    }
+                ],
+                as: "tokenDetails"
+            }
+        },
+        {
+            $unwind: {
+                path: "$tokenDetails",
+                preserveNullAndEmptyArrays: true // Keep clans even if no matching token
+            }
+        },
+        {
+            $project: {
+                _id: 0,
+                clan_id: "$_id",
+                chainId: 1,
+                clanName: 1,
+                contractAddress: 1,
+                logoUrl: "$tokenDetails.logoUrl", // Fetch logoUrl from tokens collection
+                tokenFullName: "$tokenDetails.tokenSymbol",
+                rating: 1,
+                joined_at: 1,
+                ownerAddress: 1,
+                usersCount: 1,
+                isMember: 1
+            }
+        },
+        {
+            $sort: { rating: -1 } // Sort by rating in descending order
+        },
+        {
+            $limit: 100 // Limit to top 100 clans
+        }
+    ]).toArray();
+
+    return leaders;
+};
+
 
 export const verifyClanName = async (clanName: string): Promise<boolean> => {
     const count = await clansCollection.countDocuments({ clanName }, { limit: 1 });
@@ -284,9 +351,15 @@ export const createClan = async ({
     tokenFullName,
     precision,
     tokenSymbol,
-}: CreateClanParamsType, userAddress: string) => {
+}: CreateClanParamsType, userAddress: `0x${string}`) => {
 
-    if (!chainName || !chainShortName || !totalSupply || !tokenFullName || !tokenSymbol || !precision) {
+    const balance = await getBalance({
+        contractAddress,
+        userAddress,
+        chainId
+    });
+
+    if (!chainName || !chainShortName || !totalSupply || !tokenFullName || !tokenSymbol || !precision || balance <= 0) {
         return;
     }
 
@@ -339,8 +412,26 @@ export const removeClan = async (params: RemoveClanParamsType) => {
     });
 }
 
-export const joinClan = async (clan_id: string, memberAddress: string) => {
+export const joinClan = async (clan_id: string, memberAddress: `0x${string}`) => {
     const clanId = new ObjectId(clan_id);
+
+    const clan = await clansCollection.findOne({
+        _id: clanId
+    });
+
+    if (!clan) {
+        return;
+    }
+
+    const balance = await getBalance({
+        userAddress: memberAddress,
+        contractAddress: clan.contractAddress,
+        chainId: clan.chainId
+    });
+
+    if (balance <= 0) {
+        return;
+    }
 
     await clansCollection.updateOne(
         { _id: clanId }, // Find clan by `_id`

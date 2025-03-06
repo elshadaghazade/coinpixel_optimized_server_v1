@@ -3,19 +3,19 @@ import { ObjectId } from "mongodb";
 export interface ClanType {
     chainId: number;
     clan_id: ObjectId;
-    contractAddress: string;
+    contractAddress: `0x${string}`;
     logoUrl?: string;
     tokenFullName?: string;
     rating: number;
     joined_at: Date;
-    ownerAddress: string;
+    ownerAddress: `0x${string}`;
     usersCount: number;
     isMember: boolean;
 }
 
 export interface CreateClanParamsType {
     clanName: string;
-    contractAddress: string;
+    contractAddress: `0x${string}`;
     chainId: number;
     tokenFullName?: string;
     tokenSymbol?: string;
@@ -25,10 +25,16 @@ export interface CreateClanParamsType {
     chainName?: string;
 }
 
+export enum GET_CLANS_FILTER_ENUM {
+    owner,
+    other,
+    member
+}
+
 export interface GetClansParamsType {
     keyword?: string;
-    userAddress: string;
-    isOwner: boolean;
+    userAddress: `0x${string}`;
+    filter: GET_CLANS_FILTER_ENUM;
     page: number;
     limit: number;
 }
@@ -52,7 +58,7 @@ export interface GetClanMembersParamsType {
 }
 
 export interface ClanMemberType {
-    memberAddress: string;
+    memberAddress: `0x${string}`;
     joined_at: string;
     rating: number;
 }

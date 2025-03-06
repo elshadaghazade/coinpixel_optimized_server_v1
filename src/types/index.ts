@@ -8,7 +8,7 @@ export type ioType = Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap
 
 export interface UserDocumentType {
     _id?: ObjectId;
-    address: string;
+    address: `0x${string}`;
     pixelLimit: number;
     pixelLimitIsCreatedAt: Date;
 }
@@ -29,7 +29,7 @@ export interface TokensCollectionType {
     tokenFullName: string;
     tokenSymbol: string;
     precision?: number;
-    tokenContractAddress: string;
+    tokenContractAddress: `0x${string}`;
     protocolType: string;
     addressCount?: number;
     totalSupply?: number;
@@ -47,11 +47,11 @@ export interface ClanCollectionType {
     _id?: ObjectId,
     clanName: string;
     chainId: number;
-    contractAddress: string;
-    ownerAddress: string;
+    contractAddress: `0x${string}`;
+    ownerAddress: `0x${string}`;
     rating: number;
     members: {
-        memberAddress: string;
+        memberAddress: `0x${string}`;
         rating: 0;
         joined_at: Date;
     }[];
@@ -62,14 +62,14 @@ export interface ClanCollectionType {
 export interface ClanMembersCollectionType {
     _id?: ObjectId;
     clan_id: ObjectId;
-    memberAddress: string;
+    memberAddress: `0x${string}`;
     joined_at: Date;
 }
 
 export interface PixelLogCollectionType {
     _id?: ObjectId;
     clan_id: ObjectId;
-    userAddress: string;
+    userAddress: `0x${string}`;
     created_at: Date;
 }
 
@@ -108,7 +108,8 @@ export enum user_socket_command_enum {
     user_leave_clan = "13",
     user_get_clan = "14",
     user_get_token = "15",
-    user_get_clan_members = "16"
+    user_get_clan_members = "16",
+    user_get_leaderboard = "17"
 }
 
 export enum server_socket_command_enum {
@@ -124,5 +125,6 @@ export enum server_socket_command_enum {
     server_clan_create_error = "10",
     server_set_clan = "11",
     server_set_token = "12",
-    server_set_clan_members = "13"
+    server_set_clan_members = "13",
+    server_set_leaderboard = "14"
 }

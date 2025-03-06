@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "dotenv -e .env -- node --expose-gc --max-old-space-size=4096 --gc-interval=120000 public/server.js",
-    "build": "tsc",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' tsc --diagnostics --extendedDiagnostics --listFiles",
     "dev": "dotenv -e .env.development -- nodemon src/server.ts",
     "seed_pixels": "dotenv -e .env.development -- ts-node src/seed/random_pixels.ts",
     "seed_tokens": "dotenv -e .env.development -- ts-node src/seed/tokens.ts",
@@ -24,7 +24,8 @@
     "express": "^4.21.0",
     "mongodb": "^6.12.0",
     "redis": "^4.7.0",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "viem": "^2.23.6"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.5.1",

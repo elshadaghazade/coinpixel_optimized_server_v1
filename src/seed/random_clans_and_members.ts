@@ -2,8 +2,8 @@ import { faker } from '@faker-js/faker';
 import { clansCollection, pixelLogsCollection, tokensCollection, usersCollection } from '../mongodb';
 import { UserDocumentType } from '../types';
 
-const generateFakeEthereumAddress = (): string => {
-    return "0x" + faker.string.hexadecimal({ length: 40, casing: "lower", prefix: "" });
+const generateFakeEthereumAddress = (): `0x${string}` => {
+    return `0x${faker.string.hexadecimal({ length: 40, casing: "lower", prefix: "" })}`;
 };
 
 const main = async () => {
@@ -41,7 +41,7 @@ const main = async () => {
         const ownerAddress = addresses[i]?.address;
         if (!ownerAddress || !token) continue;
 
-        const members: { memberAddress: string; rating: 0, joined_at: Date }[] = [];
+        const members: { memberAddress: `0x${string}`; rating: 0, joined_at: Date }[] = [];
         for (let j = 0; j < 100; j++) {
             const userAddress = addresses[Math.floor(Math.random() * addresses.length)]?.address;
             if (userAddress) {

@@ -1,6 +1,6 @@
 import { getSettings, usersCollection } from "../../mongodb";
 
-export const initUser = async (address: string) => {
+export const initUser = async (address: `0x${string}`) => {
     
     const settings = await getSettings();
     if (!settings) {

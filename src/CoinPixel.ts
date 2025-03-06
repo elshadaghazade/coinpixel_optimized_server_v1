@@ -9,11 +9,11 @@ import {
 } from './types';
 import { RedisClient } from './RedisClient';
 import { initUser } from './services/users';
-import { getAreaData, removePixel, setPixel, updatePixelLimit } from './services/pixels';
+import { getAreaData, removePixel, setPixel, setPixelLog, updatePixelLimit } from './services/pixels';
 import { getSettings } from './mongodb';
 import { TokenSearchParamsType } from './types/tokens';
 import { searchToken } from './services/tokens';
-import { createClan, leaveClan, getClans, joinClan, removeClan, verifyClanName, getClan, getClanMembers } from './services/clans';
+import { createClan, leaveClan, getClans, joinClan, removeClan, verifyClanName, getClan, getClanMembers, getLeaderboard } from './services/clans';
 import { 
     CreateClanParamsType, 
     GetClanMembersParamsType, 
@@ -91,10 +91,13 @@ export class CoinPixel {
             case user_socket_command_enum.user_get_clan_members:
                 await this.userGetClanMembers(data);
                 break;
+            case user_socket_command_enum.user_get_leaderboard:
+                await this.userGetLeaderboard();
+                break;
         }
     }
 
-    async init(address: string) {
+    async init(address: `0x${string}`) {
         if (!this.socket?.connected || !this.socket?.id) {
             return;
         }
@@ -111,7 +114,8 @@ export class CoinPixel {
 
     async setPixel(data: {
         item: PixelType;
-        offset: OffsetType
+        offset: OffsetType,
+        clan_id?: string;
     }) {
         if (this.me?.user.address !== data.item.address || !this.socket?.connected) {
             return;
@@ -119,8 +123,13 @@ export class CoinPixel {
 
         try {
             const pixel = await setPixel(data.item, data.offset);
+            
             if (pixel) {
                 this.socket.broadcast.emit(server_socket_command_enum.server_set_pixel, pixel);
+            }
+
+            if (data.clan_id && this.me?.user.address) {
+                await setPixelLog(data.clan_id, this.me.user.address);
             }
         } catch (err) {
             console.error(err);
@@ -270,7 +279,10 @@ export class CoinPixel {
         }
 
         try {
-            await leaveClan(params);
+            await leaveClan({
+                ...params,
+                userAddress: this.me.user.address
+            });
             const clans = await getClans(params);
             this.socket.emit(server_socket_command_enum.server_set_user_clans, clans);
         } catch (err: any) {
@@ -309,7 +321,18 @@ export class CoinPixel {
         }
     }
 
-    
+    async userGetLeaderboard () {
+        if (!this.socket?.connected) {
+            return;
+        }
+
+        try {
+            const leaderboard = await getLeaderboard();
+            this.socket.emit(server_socket_command_enum.server_set_leaderboard, leaderboard);
+        } catch (err: any) {
+            console.error(err);
+        }
+    }
 
     async disconnect() {
 
