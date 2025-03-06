@@ -62,7 +62,7 @@ const colors = [
         await clansCollection.createIndex({ clanName: "text", contractAddress: "text" }, { name: "clan_text_search" });
         await clansCollection.createIndex({ rating: -1 }, { name: "clan_sorting_rating" });
         await clansCollection.createIndex({ ownerAddress: 1 }, { name: "clan_ownerAddress" });
-        await clansCollection.createIndex({ "members.memberAddress": 1 }, { name: "clan_members_memberAddress" });
+        await clansCollection.createIndex({ "members.memberAddress": 1, _id: 1 }, { unique: true, name: "clan_members_memberAddress_clan_id" });
 
     } catch (err: any) {
         console.error("coinpixel.pixels.row_col_index error:", err.toString());

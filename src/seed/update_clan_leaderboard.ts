@@ -20,11 +20,12 @@ const getLastWeekRange = () => {
 // 📌 Step 3: Run Aggregation Pipeline and Update Leaderboard
 const updateClanLeaderboard = async () => {
     try {
-        console.log("Connected to MongoDB...");
+
+        const t1 = Date.now();
 
         const { lastMonday, lastSunday } = getLastWeekRange();
 
-        // 🔹 Step 1: Aggregate clan ratings from pixel logs
+        console.log(new Date(), 'Step 1: Aggregate clan ratings from pixel logs');
         const leaderboard = await pixelLogsCollection.aggregate([
             {
                 $match: { created_at: { $gte: lastMonday, $lte: lastSunday } } // Filter last week's records
@@ -37,7 +38,7 @@ const updateClanLeaderboard = async () => {
             }
         ]).toArray();
 
-        // 🔹 Step 2: Get user ratings across all clans
+        console.log(new Date(), 'Step 2: Get user ratings across all clans');
         const userRatings = await pixelLogsCollection.aggregate([
             {
                 $match: { created_at: { $gte: lastMonday, $lte: lastSunday } }
@@ -50,7 +51,7 @@ const updateClanLeaderboard = async () => {
             }
         ]).toArray();
 
-        // 🔹 Step 3: Update each clan's rating
+        console.log(new Date(), "Step 3: Update each clan's rating");
         for (const entry of leaderboard) {
             await clansCollection.updateOne(
                 { _id: entry._id },
@@ -58,20 +59,26 @@ const updateClanLeaderboard = async () => {
             );
         }
 
-        // 🔹 Step 4: Update each user's rating inside the members array
-        for (const entry of userRatings) {
-            await clansCollection.updateOne(
-                {
+        console.log(new Date(), "Step 4: Update each user's rating inside the members array");
+        const bulkOperations = userRatings.map((entry) => ({
+            updateOne: {
+                filter: {
                     _id: entry._id.clan_id,
                     "members.memberAddress": entry._id.userAddress
                 },
-                {
+                update: {
                     $set: { "members.$.rating": entry.userRating }
                 }
-            );
+            }
+        }));
+        
+        if (bulkOperations.length > 0) {
+            await clansCollection.bulkWrite(bulkOperations);
         }
 
-        console.log("Clan leaderboard and member ratings updated successfully!");
+        const t2 = Date.now();
+
+        console.log("Clan leaderboard and member ratings updated successfully!", (t2 - t1) / 1000, "seconds");
     } catch (error) {
         console.error("Error updating leaderboard:", error);
     }
